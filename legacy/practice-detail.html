@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Technology Law | Diamond Advocates</title>
+  <meta name="description" content="Explore Diamond Advocates' Technology Law practice.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+  <main id="main">
+    <section class="practice-hero" data-practice-hero>
+      <img class="practice-hero-image" data-practice-image src="images/Practices/techlawpng" alt="Technology keyboard illuminated in red and blue">
+      <span class="practice-hero-grid" aria-hidden="true"></span>
+      <div class="container practice-hero-content" data-reveal="hero">
+        <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="practice-areas.html">Our Practice</a><span>/</span><span data-practice-short-title>Tech Law</span></nav>
+        <div class="practice-hero-meta"><span data-practice-number>01</span><span data-practice-category>Digital frontier</span></div>
+        <h1 data-practice-title>Technology Law</h1>
+        <p data-practice-intro>Experienced legal advisers for the technologies, businesses and policy questions shaping what comes next.</p>
+        <a class="btn btn--gold" href="#approach">Explore the practice <span>↓</span></a>
+      </div>
+    </section>
+
+    <section class="section practice-narrative">
+      <div class="container detail-layout detail-layout--editorial">
+        <aside>
+          <nav class="section-nav" aria-label="On this page">
+            <span class="section-nav-label">On this page</span>
+            <a class="active" href="#approach">Our Approach</a>
+            <a href="#services">How We Help</a>
+            <a href="#team">Practice Team</a>
+          </nav>
+        </aside>
+        <div>
+          <section class="detail-section practice-approach" id="approach" data-reveal>
+            <p class="eyebrow">Our approach</p>
+            <p class="practice-dropcopy" data-practice-approach>Our award-winning Technology Law Practice team deploys experienced advisers spanning key digital fields to help businesses and organisations navigate the laws and regulations governing the most progressive technologies.</p>
+            <div class="practice-pullquote"><span aria-hidden="true">“</span><p>Legal clarity for ambitious decisions.</p></div>
+          </section>
+
+          <section class="detail-section" id="services">
+            <div class="section-head" data-reveal><div><p class="eyebrow">Our practice</p><h2>How we support clients.</h2></div><span class="practice-service-count" data-service-count>08 capabilities</span></div>
+            <ol class="service-grid" data-practice-services data-reveal="stagger">
+              <li><span>01</span><p>Product development and operations</p></li>
+            </ol>
+          </section>
+
+          <section class="detail-section practice-team-section" id="team" data-reveal>
+            <p class="eyebrow">Practice team</p>
+            <div data-practice-team></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-next section--navy">
+      <a data-next-practice href="practice-detail.html?practice=ai">
+        <div class="container"><span class="eyebrow">Continue exploring</span><div><p>Next practice</p><h2 data-next-title>AI Law</h2><span class="practice-next-arrow">↗</span></div></div>
+      </a>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="js/components.js"></script>
+  <script src="js/practice-data.js"></script>
+  <script>
+    (() => {
+      const practices = window.DIAMOND_PRACTICES;
+      const keys = Object.keys(practices);
+      const requested = new URLSearchParams(location.search).get('practice') || 'tech';
+      const key = practices[requested] ? requested : 'tech';
+      const practice = practices[key];
+      const setText = (selector, value) => document.querySelectorAll(selector).forEach((element) => { element.textContent = value; });
+
+      setText('[data-practice-title]', practice.title);
+      setText('[data-practice-short-title]', practice.shortTitle);
+      setText('[data-practice-number]', practice.number);
+      setText('[data-practice-category]', practice.category);
+      setText('[data-practice-intro]', practice.intro);
+      setText('[data-practice-approach]', practice.approach);
+
+      const heroImage = document.querySelector('[data-practice-image]');
+      heroImage.src = practice.image;
+      heroImage.alt = practice.imageAlt;
+      document.title = `${practice.title} | Diamond Advocates`;
+      document.querySelector('meta[name="description"]').content = practice.intro;
+
+      const services = document.querySelector('[data-practice-services]');
+      services.innerHTML = practice.services.map((service, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><p>${service}</p></li>`).join('');
+      setText('[data-service-count]', `${String(practice.services.length).padStart(2, '0')} capabilities`);
+
+      const team = document.querySelector('[data-practice-team]');
+      team.innerHTML = practice.team
+        ? `<a class="practice-lead" href="team-profile.html?person=${practice.team.slug}"><img src="${practice.team.image}" alt="${practice.team.name}"><div><span>Practice lead</span><h2>${practice.team.name}</h2><p>${practice.team.role}</p><span class="text-link">View profile <span>→</span></span></div></a>`
+        : `<div class="practice-team-open"><div><h2>A multidisciplinary team, assembled around your matter.</h2><p>Our lawyers combine sector understanding with the right legal experience for every engagement.</p></div><a class="btn btn--navy" href="team.html">Meet our team <span>↗</span></a></div>`;
+
+      const nextKey = keys[(keys.indexOf(key) + 1) % keys.length];
+      const next = practices[nextKey];
+      const nextLink = document.querySelector('[data-next-practice]');
+      nextLink.href = `practice-detail.html?practice=${nextKey}`;
+      setText('[data-next-title]', next.title);
+    })();
+  </script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
