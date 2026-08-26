@@ -9,7 +9,7 @@ export function CookieBanner() {
   const hydrated = useHydrated();
 
   if (!hydrated || consent) return null;
-
+// 
   return (
     <aside className="cookie-banner" role="region" aria-label="Cookie notice">
       <div>
