@@ -916,4 +916,5 @@ export const fallbackFooter: FooterContent = {
     { label: 'Cookie Policy', href: '/cookie-policy' },
   ],
   legalNote: 'Legal Disclaimer (page to be supplied)',
+  legalNoteEnabled: false,
 };

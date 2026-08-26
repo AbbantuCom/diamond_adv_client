@@ -78,7 +78,7 @@ export function SiteFooter({ site, footer, contact }: SiteFooterProps) {
                 <Link href={link.href}>{link.label}</Link>
               </Fragment>
             ))}
-            {footer.legalNote && (
+            {footer.legalNoteEnabled && footer.legalNote && (
               <>
                 {footer.legalLinks.length > 0 && ' · '}
                 {footer.legalNote}

@@ -311,6 +311,12 @@ export interface FooterContent {
   contactTitle: string;
   legalLinks: NavLink[];
   legalNote: string;
+  /**
+   * Whether the trailing note is shown. Optional because content saved before
+   * the switch existed has no such key — and absent reads as off, which is the
+   * safe direction: a note stays hidden until someone deliberately turns it on.
+   */
+  legalNoteEnabled?: boolean;
 }
 
 // ─── Envelope ────────────────────────────────────────────────────────────────
