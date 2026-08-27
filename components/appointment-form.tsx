@@ -142,7 +142,7 @@ export function AppointmentForm({ site, contact }: AppointmentFormProps) {
         body: JSON.stringify({
           name: values.name,
           email: values.email,
-          subject: `${values.topic} — appointment request`,
+          subject: `${values.topic}: appointment request`,
           message: [`Phone: ${values.phone}`, `Area of interest: ${values.topic}`, '', values.details].join('\n'),
         }),
       });

@@ -105,8 +105,8 @@ export default async function PrivacyPolicyPage() {
                 <Link className="blog-inline-link" href="/contact">
                   contact page
                 </Link>
-                , the details you have typed — your name, email address, telephone number, the area
-                of law you have selected and the description of your matter — are sent to us and
+                , the details you have typed (your name, email address, telephone number, the area
+                of law you have selected and the description of your matter) are sent to us and
                 stored on our own systems, where they can be read only by members of the firm.
               </p>
               <p>

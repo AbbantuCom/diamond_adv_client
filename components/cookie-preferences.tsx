@@ -3,8 +3,8 @@
 import { setConsent, useConsent, useHydrated } from '@/lib/consent';
 
 const labels = {
-  accepted: 'Accepted — embedded content loads automatically.',
-  rejected: 'Rejected — embedded content stays off until you ask for it.',
+  accepted: 'Accepted. Embedded content loads automatically.',
+  rejected: 'Rejected. Embedded content stays off until you ask for it.',
 } as const;
 
 /** Lets a visitor see and change the choice they made in the banner. */

@@ -40,7 +40,7 @@ export async function PreviewBar() {
         boxShadow: '0 -2px 12px rgba(0,0,0,0.25)',
       }}
     >
-      <span>Preview mode — showing unpublished draft content.</span>
+      <span>Preview mode: showing unpublished draft content.</span>
       <a
         href="/api/preview/exit"
         style={{
